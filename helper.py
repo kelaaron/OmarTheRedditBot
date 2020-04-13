@@ -12,9 +12,9 @@ def search_posts(subreddit, query):
     print(now)
     # now = (now - datetime(1970,1,1, tzinfo=timezone.utc)) / timedelta(seconds=1)
     for submission in subreddit.new(limit=None):
-        print(submission.created_utc)
-        print(submission.title)
-        print(submission.selftext)
+        # print(submission.created_utc)
+        # print(submission.title)
+        # print(submission.selftext)
         if(now - datetime.timedelta(days=30) <= datetime.datetime.fromtimestamp(submission.created_utc)):
             lately_posts += 1
             if re.search(query, submission.title, re.IGNORECASE):
@@ -27,5 +27,5 @@ def search_posts(subreddit, query):
                 old_count += 1
             elif re.search(query, submission.selftext, re.IGNORECASE):
                 old_count += 1
-    return lately_count / lately_posts, old_count / old_posts
+    return lately_count / lately_posts, old_count / old_posts, lately_count, lately_posts
     
