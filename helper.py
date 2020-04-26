@@ -15,7 +15,8 @@ def search_posts(subreddit, query):
         # print(submission.created_utc)
         # print(submission.title)
         # print(submission.selftext)
-        if(now - datetime.timedelta(days=30) <= datetime.datetime.fromtimestamp(submission.created_utc)):
+        if(now - datetime.timedelta(days=7) <= datetime.datetime.fromtimestamp(submission.created_utc)):
+            # print("WITHIN LAST WEEK")
             lately_posts += 1
             if re.search(query, submission.title, re.IGNORECASE):
                 lately_count += 1

@@ -4,7 +4,7 @@ import helper
 
 reddit = praw.Reddit('Omar')
 
-subreddit = reddit.subreddit("testingground4bots")
+subreddit = reddit.subreddit("cscareerquestions")
 
 comments = subreddit.comments(limit=None)
 
@@ -37,11 +37,11 @@ for comment in comments:
                 late, old, count, posts = helper.search_posts(subreddit, query)
                 reply = ""
                 if late >= old:
-                    reply = "The word \"" + query + "\" has appeared in " + str(count) + "/" + str(posts) + " posts within the last month, which is "
+                    reply = "The word \"" + query + "\" has appeared in " + str(count) + "/" + str(posts) + " posts within the last week, which is "
                     reply += str((late - old) * 100)[0:5] + "% above average. Please upvote this so I can help more!"
                     #print(reply)
                 else:
-                    reply = "The word \"" + query + "\" has appeared in " + str(count) + "/" + str(posts) + " posts within the last month, which is "
+                    reply = "The word \"" + query + "\" has appeared in " + str(count) + "/" + str(posts) + " posts within the last week, which is "
                     reply += str((old - late) * 100)[0:5] + "% below average. Please upvote this so I can help more!"
                     #print(reply)
                     
